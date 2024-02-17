@@ -13,19 +13,21 @@
         <div class="col-lg-3">
 
             <h1 class="my-4">Store</h1>
-            <div class="list-group">
-                <a href="#" class="list-group-item">Новинки</a>
-                <a href="#" class="list-group-item">Одежда</a>
-                <a href="#" class="list-group-item">Обувь</a>
-                <a href="#" class="list-group-item">Аксессуары</a>
-                <a href="#" class="list-group-item">Подарки</a>
+            <div class="list-group text">
+                {% for category in categories %}
+                <a href="#" class="list-group-item">{{ category.name }}</a>
+                {% endfor %}
+
             </div>
 
         </div>
         <!-- /.col-lg-3 -->
 
         <div class="col-lg-9">
-
+            <form class="form-inline my-2 my-lg-0 ml-auto">
+                <input class="form-control mr-sm-2" type="search" placeholder="Поиск" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Найти</button>
+            </form>
             <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -59,7 +61,7 @@
                     <div class="card h-100">
                         <a href="#">
                             <img class="card-img-top"
-                                 src="{{ product.image }}"
+                                 src="{{ product.image.url }}"
                                  alt="">
                         </a>
                         <div class="card-body">
@@ -103,7 +105,7 @@
 {% block footer %}
     <footer class="py-5 bg-dark">
     <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Store 2022</p>
+        <p class="m-0 text-center text-white">Copyright &copy; Store 2024</p>
     </div>
 </footer>
 {% endblock %}
